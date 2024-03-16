@@ -1,0 +1,37 @@
+<svg id="outside__weather" class="weather-50n weather-50d" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 277.99 227.93" width="40%" x="30%" y="35%">
+  <defs>
+    <style>
+      .weather-50__cls-1 {
+        fill: url(#weather-50__linear-gradient-2);
+      }
+
+      .weather-50__cls-2 {
+        fill: url(#weather-50__linear-gradient-3);
+      }
+
+      .weather-50__cls-3 {
+        fill: url(#weather-50__linear-gradient);
+      }
+    </style>
+    <linearGradient id="weather-50__linear-gradient" x1="190.26" y1="9.31" x2="66.19" y2="133.37" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2ed573"/>
+      <stop offset=".49" stop-color="#30d574" stop-opacity="1"/>
+      <stop offset=".67" stop-color="#38d878" stop-opacity=".99"/>
+      <stop offset=".79" stop-color="#46dc80" stop-opacity=".97"/>
+      <stop offset=".9" stop-color="#5ae28c" stop-opacity=".94"/>
+      <stop offset=".98" stop-color="#74ea9b" stop-opacity=".91"/>
+      <stop offset="1" stop-color="#7bed9f" stop-opacity=".9"/>
+    </linearGradient>
+    <linearGradient id="weather-50__linear-gradient-2" x1="258.49" y1="-1482.72" x2="142.61" y2="-1366.85" gradientTransform="translate(0 -1263.65) scale(1 -1)" xlink:href="#weather-50__linear-gradient"/>
+    <linearGradient id="weather-50__linear-gradient-3" x1="70.53" y1="117.71" x2="20.17" y2="168.07" xlink:href="#weather-50__linear-gradient"/>
+  </defs>
+  <g>
+    <path class="weather-50__cls-3" d="M161.08,103.18H41.01c-6.68,0-12.09-5.41-12.09-12.09s5.41-12.09,12.09-12.09h119.81c14.41-.71,26.1-12.96,26.1-27.41s-11.81-26.83-26.32-27.42c-6.67-.27-11.86-5.9-11.59-12.57,.27-6.67,5.9-11.87,12.57-11.58,27.77,1.13,49.52,23.79,49.52,51.58s-21.75,50.44-49.52,51.58c-.16,0-.33,.01-.49,.01Z"/>
+  </g>
+  <g>
+    <path class="weather-50__cls-1" d="M230.88,227.93c-6.45,0-11.8-5.09-12.07-11.6-.27-6.67,4.91-12.3,11.59-12.57,12.91-.53,23.42-11.47,23.42-24.4s-10.39-23.74-23.2-24.39H120c-6.68,0-12.09-5.41-12.09-12.09s5.41-12.09,12.09-12.09h110.88c.16,0,.33,0,.49,.01,26.14,1.07,46.61,22.39,46.61,48.55s-20.47,47.49-46.61,48.55c-.17,0-.33,.01-.5,.01Z"/>
+  </g>
+  <g>
+    <path class="weather-50__cls-2" d="M78.61,154.98H12.09c-6.68,0-12.09-5.41-12.09-12.09s5.41-12.09,12.09-12.09H78.61c6.68,0,12.09,5.41,12.09,12.09s-5.41,12.09-12.09,12.09Z"/>
+  </g>
+</svg>

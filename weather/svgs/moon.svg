@@ -1,0 +1,13 @@
+<svg id="outside__celestial-body" class="moon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 271.43 281.36" width="20%" x="50%" y="-30%">
+  <defs>
+    <linearGradient id="moon__linear-gradient" x1="167.98" y1="110.6" x2="42.08" y2="236.51" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#5f27cd"/>
+      <stop offset=".13" stop-color="#5024bb" stop-opacity=".97"/>
+      <stop offset=".28" stop-color="#4421ab" stop-opacity=".94"/>
+      <stop offset=".46" stop-color="#3a209f" stop-opacity=".92"/>
+      <stop offset=".67" stop-color="#351f99" stop-opacity=".9"/>
+      <stop offset="1" stop-color="#341f97" stop-opacity=".9"/>
+    </linearGradient>
+  </defs>
+  <path fill="url(#moon__linear-gradient)" d="M32.58,9.44C43.28-7.66,69.37,.05,68.2,19.93c-2.84,48.28,12.25,96.08,43.87,133.04,35.26,41.21,86.82,63.99,140.78,64.6,19.62,.22,25.73,26.22,8.4,35.99-73.97,41.7-162.21,35.13-212.52-10.6C-7.56,191.78-17.91,90.15,32.58,9.44Z"/>
+</svg>

@@ -1,0 +1,20 @@
+<svg id="outside__weather" class="weather-03n weather-03d" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 401.61 231.82" width="40%" x="20%" y="-25%">
+  <defs>
+    <linearGradient id="weather-03__linear-gradient-1" x1="325.06" y1="34.4" x2="101.16" y2="258.3" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff"/>
+      <stop offset=".22" stop-color="#fcfcfc" stop-opacity="1"/>
+      <stop offset=".4" stop-color="#f3f3f3" stop-opacity=".99"/>
+      <stop offset=".57" stop-color="#e4e4e4" stop-opacity=".97"/>
+      <stop offset=".72" stop-color="#d0d0d0" stop-opacity=".95"/>
+      <stop offset=".87" stop-color="#b5b5b5" stop-opacity=".93"/>
+      <stop offset="1" stop-color="#999" stop-opacity=".9"/>
+    </linearGradient>
+    <linearGradient id="weather-03__linear-gradient-2" x1="196.22" y1="102.89" x2="49.99" y2="249.11" xlink:href="#weather-03__linear-gradient-1"/>
+  </defs>
+  <g>
+    <path fill="url(#weather-03__linear-gradient-1)" d="M316.14,60.88h-1.95c-10.85,0-20.6-6.18-25.72-15.75C274.06,18.27,245.73,0,213.11,0h0c-32.44,0-60.64,18.07-75.12,44.7-5.48,10.07-16.18,16.19-27.65,16.19h-.27c-47.2,0-85.47,38.27-85.47,85.47h0c0,47.2,38.27,85.47,85.47,85.47h206.06c47.2,0,85.47-38.27,85.47-85.47h0c0-47.2-38.27-85.47-85.47-85.47Z"/>
+  </g>
+  <g>
+    <path fill="url(#weather-03__linear-gradient-2)" d="M190.4,120.18h-1.27c-7.09,0-13.45-4.04-16.8-10.28-9.41-17.54-27.91-29.48-49.21-29.48h0c-21.18,0-39.6,11.8-49.06,29.19-3.58,6.58-10.57,10.57-18.06,10.57h-.17C24.99,120.18,0,145.17,0,176H0c0,30.83,24.99,55.82,55.82,55.82H190.4c30.83,0,55.82-24.99,55.82-55.82h0c0-30.83-24.99-55.82-55.82-55.82Z"/>
+  </g>
+</svg>

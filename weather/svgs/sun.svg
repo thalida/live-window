@@ -1,0 +1,29 @@
+<svg id="outside__celestial-body" class="sun" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 299.99 299.99" width="30%" x="45%" y="-30%">
+  <defs>
+    <linearGradient id="sun__linear-gradient" x1="212.43" y1="87.88" x2="88.21" y2="212.1" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffaf40"/>
+      <stop offset=".08" stop-color="#ffba35"/>
+      <stop offset=".28" stop-color="#ffd21d"/>
+      <stop offset=".5" stop-color="#ffe40d"/>
+      <stop offset=".73" stop-color="#ffee03"/>
+      <stop offset="1" stop-color="#fff200"/>
+    </linearGradient>
+    <linearGradient id="sun__linear-gradient-2" x1="291.97" y1="138.14" x2="268.25" y2="161.85" xlink:href="#sun__linear-gradient"/>
+    <linearGradient id="sun__linear-gradient-3" x1="31.73" y1="138.14" x2="8.02" y2="161.85" xlink:href="#sun__linear-gradient"/>
+    <linearGradient id="sun__linear-gradient-4" x1="162.18" y1="8.02" x2="138.46" y2="31.73" gradientTransform="translate(170.2 -130.45) rotate(90)" xlink:href="#sun__linear-gradient"/>
+    <linearGradient id="sun__linear-gradient-5" x1="162.18" y1="268.25" x2="138.46" y2="291.97" gradientTransform="translate(430.43 129.79) rotate(90)" xlink:href="#sun__linear-gradient"/>
+    <linearGradient id="sun__linear-gradient-6" x1="64.87" y1="51.43" x2="51.75" y2="64.54" gradientTransform="translate(140.55 57.75) rotate(135)" xlink:href="#sun__linear-gradient"/>
+    <linearGradient id="sun__linear-gradient-7" x1="248.89" y1="235.44" x2="235.77" y2="248.56" gradientTransform="translate(584.8 241.77) rotate(135)" xlink:href="#sun__linear-gradient"/>
+    <linearGradient id="sun__linear-gradient-8" x1="256.38" y1="43.93" x2="228.28" y2="72.04" gradientTransform="translate(111.98 -154.37) rotate(45)" xlink:href="#sun__linear-gradient"/>
+    <linearGradient id="sun__linear-gradient-9" x1="72.37" y1="227.95" x2="44.26" y2="256.06" gradientTransform="translate(188.2 29.65) rotate(45)" xlink:href="#sun__linear-gradient"/>
+  </defs>
+  <circle fill="url(#sun__linear-gradient)" cx="150.32" cy="149.99" r="87.84"/>
+  <rect fill="url(#sun__linear-gradient-2)" x="260.24" y="140.72" width="39.75" height="18.55" rx="9.27" ry="9.27"/>
+  <rect fill="url(#sun__linear-gradient-3)" x="0" y="140.72" width="39.75" height="18.55" rx="9.27" ry="9.27"/>
+  <rect fill="url(#sun__linear-gradient-4)" x="130.45" y="10.6" width="39.75" height="18.55" rx="9.27" ry="9.27" transform="translate(130.45 170.2) rotate(-90)"/>
+  <rect fill="url(#sun__linear-gradient-5)" x="130.45" y="270.84" width="39.75" height="18.55" rx="9.27" ry="9.27" transform="translate(-129.79 430.43) rotate(-90)"/>
+  <rect fill="url(#sun__linear-gradient-6)" x="38.44" y="48.71" width="39.75" height="18.55" rx="9.27" ry="9.27" transform="translate(58.54 140.22) rotate(-135)"/>
+  <rect fill="url(#sun__linear-gradient-7)" x="222.45" y="232.73" width="39.75" height="18.55" rx="9.27" ry="9.27" transform="translate(242.56 584.48) rotate(-135)"/>
+  <rect fill="url(#sun__linear-gradient-8)" x="222.45" y="48.71" width="39.75" height="18.55" rx="9.27" ry="9.27" transform="translate(29.97 188.34) rotate(-45)"/>
+  <rect fill="url(#sun__linear-gradient-9)" x="38.44" y="232.73" width="39.75" height="18.55" rx="9.27" ry="9.27" transform="translate(-154.04 112.11) rotate(-45)"/>
+</svg>

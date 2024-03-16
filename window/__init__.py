@@ -47,6 +47,16 @@ def create_window_svg(
 
     weather_data = get_weather_data(units, lat, lon, lang)
 
+    if units == "metric":
+        symbol = "°C"
+    elif units == "imperial":
+        symbol = "°F"
+    else:
+        symbol = "K"
+
+    location = weather_data["name"]
+    currently = f"{weather_data['main']['temp']}{symbol}, {weather_data['weather'][0]['description']}"
+
     sunrise_time = datetime.fromtimestamp(weather_data["sys"]["sunrise"])
     sunset_time = datetime.fromtimestamp(weather_data["sys"]["sunset"])
 
@@ -81,6 +91,10 @@ def create_window_svg(
                 <g filter="url(#filter0_i_303_174)">
                     <path d="M0 512C0 503.163 7.16344 496 16 496H428C436.837 496 444 503.163 444 512V520C444 524.418 440.418 528 436 528H8C3.58172 528 0 524.418 0 520V512Z" fill="#36334D"/>
                 </g>
+            </g>
+            <g clip-path="url(#clip5_303_174)">
+                <text x="64" y="450" fill="red">{location}</text>
+                <text x="64" y="480" fill="pink">{currently}</text>
             </g>
         </g>
         <defs>
@@ -147,14 +161,14 @@ def create_window_svg(
             <clipPath id="clip1_303_174">
                 <path d="M32 190C32 85.0659 117.066 0 222 0V0C326.934 0 412 85.0659 412 190V512H32V190Z" fill="white"/>
             </clipPath>
-            <clipPath id="clip2_303_174">
-                <rect width="240" height="199.737" fill="white" transform="translate(110 109)"/>
-            </clipPath>
             <clipPath id="clip3_303_174">
                 <rect width="380" height="512" fill="white" transform="translate(32)"/>
             </clipPath>
             <clipPath id="clip4_303_174">
                 <rect width="444" height="528" fill="white"/>
+            </clipPath>
+            <clipPath id="clip5_303_174">
+                <rect width="380" height="512" fill="white" transform="translate(32)"/>
             </clipPath>
         </defs>
     </svg>

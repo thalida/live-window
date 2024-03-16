@@ -1,21 +1,40 @@
+from collections import defaultdict
+from datetime import datetime, timedelta
+from math import floor
 import os
+
+from rich import print
 
 from dotenv import load_dotenv
 import requests
-from rich import print
 
 load_dotenv()
 
+OPEN_WEATHER_API_KEY = os.getenv("OPEN_WEATHER_API_KEY")
 
 # New York City
 DEFAULT_LOCATION = {
     "lat": 40.7128,
     "lng": -74.0060,
 }
-OPEN_WEATHER_API_KEY = os.getenv("OPEN_WEATHER_API_KEY")
+
+HOURS_IN_DAY = 24
+MINUTES_IN_HOUR = 60
+TIME_COLORS = [
+    {"r": 4, "g": 10, "b": 30},
+    {"r": 139, "g": 152, "b": 206},
+    {"r": 86, "g": 216, "b": 255},
+    {"r": 255, "g": 216, "b": 116},
+    {"r": 255, "g": 183, "b": 116},
+    {"r": 255, "g": 153, "b": 116},
+    {"r": 255, "g": 103, "b": 116},
+    {"r": 20, "g": 40, "b": 116},
+]
+SUNRISE_COLOR_IDX = 2
+SUNSET_COLOR_IDX = 6
 
 
-def get_weather_svg(
+def create_window_svg(
     units: str | None = "metric",
     lat: float | None = DEFAULT_LOCATION["lat"],
     lon: float | None = DEFAULT_LOCATION["lng"],
@@ -27,6 +46,16 @@ def get_weather_svg(
     lang = lang or "en"
 
     weather_data = get_weather_data(units, lat, lon, lang)
+
+    sunrise_time = datetime.fromtimestamp(weather_data["sys"]["sunrise"])
+    sunset_time = datetime.fromtimestamp(weather_data["sys"]["sunset"])
+
+    gradient = getRealisticColorGradient(sunrise_time, sunset_time)
+    start_color = f"rgb({gradient['start']['r']}, {gradient['start']['g']}, {gradient['start']['b']})"
+    end_color = (
+        f"rgb({gradient['end']['r']}, {gradient['end']['g']}, {gradient['end']['b']})"
+    )
+
     weather_icon = weather_data["weather"][0]["icon"]
     celestial_body_svg = get_celestial_body_svg(weather_icon)
     weather_icon_svg = get_weather_icon_svg(weather_icon)
@@ -65,8 +94,8 @@ def get_weather_svg(
             <feBlend mode="normal" in2="shape" result="effect1_innerShadow_303_174"/>
             </filter>
             <linearGradient id="paint0_linear_303_174" x1="32" y1="-7" x2="412" y2="520.5" gradientUnits="userSpaceOnUse">
-                <stop stop-color="#142372"/>
-                <stop offset="1" stop-color="#09123F"/>
+                <stop stop-color="{start_color}"/>
+                <stop offset="1" stop-color="{end_color}"/>
             </linearGradient>
             <linearGradient id="paint1_linear_303_174" x1="178.485" y1="308.737" x2="178.485" y2="288.795" gradientUnits="userSpaceOnUse">
                 <stop stop-color="#22A6B3"/>
@@ -153,7 +182,7 @@ def get_weather_data(
 def get_celestial_body_svg(icon: str):
     icon_suffix = icon[-1]
     celestial_body = "moon" if icon_suffix == "n" else "sun"
-    file_path = f"weather/svgs/{celestial_body}.svg"
+    file_path = f"window/svgs/{celestial_body}.svg"
     if os.path.exists(file_path):
         with open(file_path, "r") as file:
             return file.read()
@@ -163,9 +192,77 @@ def get_celestial_body_svg(icon: str):
 
 def get_weather_icon_svg(icon: str):
     icon_without_suffix = icon[:-1]
-    file_path = f"weather/svgs/weather-{icon_without_suffix}.svg"
+    file_path = f"window/svgs/weather-{icon_without_suffix}.svg"
     if os.path.exists(file_path):
         with open(file_path, "r") as file:
             return file.read()
     else:
         return None
+
+
+def getColorBlend(start_color, end_color, distance):
+    blend = defaultdict(int)
+    for part in ["r", "g", "b"]:
+        blend[part] = round(
+            start_color[part] + (end_color[part] - start_color[part]) * distance
+        )
+
+    return blend
+
+
+def getRealisticColor(sunrise_time, sunset_time, now):
+    if now < sunrise_time:
+        color_phase = TIME_COLORS[0 : SUNRISE_COLOR_IDX + 1]
+        phase_start_time = datetime(now.year, now.month, now.day, 0, 0, 0, 0)
+        phase_end_time = sunrise_time
+    elif now >= sunset_time:
+        color_phase = TIME_COLORS[SUNSET_COLOR_IDX:]
+        color_phase.append(TIME_COLORS[0])
+        phase_start_time = sunset_time
+        phase_end_time = datetime(now.year, now.month, now.day, 23, 59, 59, 999)
+        if phase_start_time.date() != now.date():
+            phase_start_time += timedelta(days=1)
+    else:
+        color_phase = TIME_COLORS[SUNRISE_COLOR_IDX : SUNSET_COLOR_IDX + 1]
+        phase_start_time = sunrise_time
+        phase_end_time = sunset_time
+
+    time_since_start = now - phase_start_time
+    time_in_phase = phase_end_time - phase_start_time
+    distance = time_since_start / time_in_phase
+
+    phase_segments = time_in_phase / (len(color_phase) - 1)
+    start_color_idx = floor((len(color_phase) - 1) * distance)
+    end_color_idx = start_color_idx + 1
+
+    start_color_time = phase_start_time + start_color_idx * phase_segments
+    end_color_time = phase_start_time + end_color_idx * phase_segments
+
+    time_in_segments = end_color_time - start_color_time
+    time_since_segment_start = now - start_color_time
+    distance_in_segment = time_since_segment_start / time_in_segments
+    start_color = color_phase[start_color_idx]
+    end_color = color_phase[end_color_idx]
+
+    return getColorBlend(start_color, end_color, distance_in_segment)
+
+
+def getRealisticColorGradient(sunrise_time, sunset_time):
+    now = datetime.now()
+    hour_ago = now - timedelta(hours=1)
+
+    gradientStart = getRealisticColor(sunrise_time, sunset_time, hour_ago)
+    gradientEnd = getRealisticColor(sunrise_time, sunset_time, now)
+
+    if now >= sunset_time:
+        gradient = {
+            "start": gradientEnd,
+            "end": gradientStart,
+        }
+    else:
+        gradient = {
+            "start": gradientStart,
+            "end": gradientEnd,
+        }
+
+    return gradient

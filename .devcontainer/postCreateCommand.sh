@@ -1,4 +1,4 @@
 #!/bin/bash
 
 cd /workspaces/live-window
-poetry install
+poetry install --no-root

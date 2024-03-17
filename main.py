@@ -20,6 +20,7 @@ def read_item(
         media_type="image/svg+xml",
         headers={
             "Content-Type": "image/svg+xml",
-            "Cache-Control": "max-age=1800, s-maxage=3600, stale-while-revalidate=3600",
+            "Cache-Control": "no-cache, max-age=0",
+            "Expires": "Thu, 01 Jan 1970 00:00:00 GMT",
         },
     )

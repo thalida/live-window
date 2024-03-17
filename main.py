@@ -18,5 +18,8 @@ def read_item(
         content=svg,
         status_code=200,
         media_type="image/svg+xml",
-        headers={"content-type": "image/svg+xml"},
+        headers={
+            "Content-Type": "image/svg+xml",
+            "Cache-Control": "max-age=1800, s-maxage=3600, stale-while-revalidate=3600",
+        },
     )

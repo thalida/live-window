@@ -42,6 +42,47 @@ Embed the image into your HTML or Markdown Document:
   https://www.latlong.net/convert-address-to-lat-long.html
 </details>
 
+## Ideas, Improvements, and Iterations
+- [ ] Support any google font
+- [ ] Support hiding location and/or current weather
+
+
+## How It's Made
+<details>
+  <summary>How do you embed the custom font?</summary>
+
+  In order for the custom font to show when the image is downloaded or included in Github Markdown, the font needs to be encoded directly into the styles.
+  Note: You can generate the base 64 encoding for any font here: https://amio.github.io/embedded-google-fonts/
+
+  ```html
+  <svg>
+    <!-- Insert SVG Elements -->
+    <defs>
+      <style>
+          @font-face {{
+              font-family: 'Bebas Neue';
+              font-style: normal;
+              font-weight: 400;
+              font-display: swap;
+              src: url(data:font/woff2;[INSERT BASE64 ENCODING]) format('woff2');
+              unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+          }}
+      </style>
+    </defs>
+  </svg>
+  ```
+  
+</details>
+
+
+## Made With
+
+* API Framework: Python [Fast API](https://fastapi.tiangolo.com/)
+* API Docs: [Stoplight Elements](https://github.com/stoplightio/elements)
+* Hosting & Deployment: [Render](https://render.com/)
+* Designed In: [Figma](https://www.figma.com/)
+
+
 ## Credits
 
 <details>

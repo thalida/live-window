@@ -24,14 +24,14 @@ Embed the image into your HTML or Markdown Document:
 | location | Latitude, Longitude coordinates  | Any lat,lng | `40.7128,-74.0060` (New York City) |
 
 
-
 ## Examples
 
-| Window | Description | Request URL |
-|--------|----------|-------------|
-| <img src="https://livewindow-api.onrender.com/api/" /> | Default (New York - Metric) | `https://livewindow-api.onrender.com/api/` |
-| <img src="https://livewindow-api.onrender.com/api/?units=imperial" /> | New York - Imperial | `https://livewindow-api.onrender.com/api/?units=imperial` |
-| <img src="https://livewindow-api.onrender.com/api/?location=48.8566,2.3522" /> | Paris, France - Metric | `https://live-window.tunl.sh/api/?location=48.8566,2.3522` /> |
+| Window | API Request |
+|--------|-----------------------|
+| <img src="https://livewindow-api.onrender.com/api/" /> | **Default: New York -  (°C)** <br /> `https://livewindow-api.onrender.com/api/` |
+| <img src="https://livewindow-api.onrender.com/api/?units=imperial" /> | **New York (°F)** <br /> `https://livewindow-api.onrender.com/api/?units=imperial` |
+| <img src="https://livewindow-api.onrender.com/api/?location=10.6918,61.2225" /> | **Trinidad & Tobago (°C)** <br /> `https://live-window.tunl.sh/api/?location=10.6918,61.2225` /> |
+| <img src="https://livewindow-api.onrender.com/api/?units=standard&location=48.8566,2.3522" /> | **Paris, France (K)** <br /> `https://live-window.tunl.sh/api/?units=standard&location=48.8566,2.3522` /> |
 
 
 ## Credits

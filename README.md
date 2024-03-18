@@ -33,7 +33,7 @@ Embed the image into your HTML or Markdown Document:
 | <img src="https://livewindow-api.onrender.com/api/?units=standard&location=48.8566,2.3522&lang=fr" /> | **Paris, France (K)** <br /> [https://live-window.tunl.sh/api/?units=standard&location=48.8566,2.3522&lang=fr](https://live-window.tunl.sh/api/?units=standard&location=48.8566,2.3522&lang=fr) |
 
 
-## Help!
+## FAQs
 
 <details>
   <summary><strong>How do I find my lat, long coordinates?</strong></summary>
@@ -42,12 +42,6 @@ Embed the image into your HTML or Markdown Document:
   https://www.latlong.net/convert-address-to-lat-long.html
 </details>
 
-## Ideas, Improvements, and Iterations
-- [ ] Support any google font
-- [ ] Support hiding location and/or current weather
-
-
-## How It's Made
 <details>
   <summary>How do you embed the custom font?</summary>
 
@@ -74,35 +68,23 @@ Embed the image into your HTML or Markdown Document:
   
 </details>
 
+## Ideas, Improvements, and Iterations
+- [ ] Support any google font
+- [ ] Support hiding location and/or current weather
 
-## Made With
 
+## How It's Made
+
+### Frameworks, Tools, and Services
 * API Framework: Python [Fast API](https://fastapi.tiangolo.com/)
 * API Docs: [Stoplight Elements](https://github.com/stoplightio/elements)
 * Hosting & Deployment: [Render](https://render.com/)
 * Designed In: [Figma](https://www.figma.com/)
 
-
-## Credits
-
-<details>
-  <summary><strong>Open Weather Map API</strong></summary>
-
-  Weather, sunrise, and sunset times are provided by: [https://openweathermap.org/api](https://openweathermap.org/api)
-</details>
-
-<details>
-  <summary><strong>3D Weather Icons</strong></summary>
-  
-  [https://ui8.net/msakta/products/weather-animated-icons](https://ui8.net/msakta/products/weather-animated-icons)
-</details>
-
-<details>
-  <summary><strong>Gradient Abstract Banners</strong></summary>
-
-  While the window frame is designed by @thalida, the gradient blobs are by:
-  [https://ui8.net/msakta/products/weather-animated-icons](https://www.figma.com/community/file/1063549775352406477/gradient-abstract-banners?searchSessionId=ltw9aro0-lwjp697d2fs)https://www.figma.com/community/file/1063549775352406477/gradient-abstract-banners?searchSessionId=ltw9aro0-lwjp697d2fs
-</details>
+### Credits
+* [Open Weather Map API](https://openweathermap.org/api): Powers Weather, sunrise, and sunset times
+* [3D Weather Icons](https://ui8.net/msakta/products/weather-animated-icons)
+* [Gradient Abstract Banners](https://www.figma.com/community/file/1063549775352406477/gradient-abstract-banners?searchSessionId=ltw9aro0-lwjp697d2fs)
 
 
 

@@ -33,5 +33,35 @@ Embed the image into your HTML or Markdown Document:
 | <img src="https://livewindow-api.onrender.com/api/?units=standard&location=48.8566,2.3522&lang=fr" /> | **Paris, France (K)** <br /> `https://live-window.tunl.sh/api/?units=standard&location=48.8566,2.3522&lang=fr` /> |
 
 
+## Help!
+
+<details>
+  <summary><strong>How do I find my lat, long coordinates?</strong></summary>
+
+  You can use this tool to find your coordinates:
+  https://www.latlong.net/convert-address-to-lat-long.html
+</details>
+
 ## Credits
+
+<details>
+  <summary><strong>Open Weather Map API</strong></summary>
+
+  Weather, sunrise, and sunset times are provided by: [https://openweathermap.org/api](https://openweathermap.org/api)
+</details>
+
+<details>
+  <summary><strong>3D Weather Icons</strong></summary>
+  
+  [https://ui8.net/msakta/products/weather-animated-icons](https://ui8.net/msakta/products/weather-animated-icons)
+</details>
+
+<details>
+  <summary><strong>Gradient Abstract Banners</strong></summary>
+
+  While the window frame is designed by @thalida, the gradient blobs are by:
+  [https://ui8.net/msakta/products/weather-animated-icons](https://www.figma.com/community/file/1063549775352406477/gradient-abstract-banners?searchSessionId=ltw9aro0-lwjp697d2fs)https://www.figma.com/community/file/1063549775352406477/gradient-abstract-banners?searchSessionId=ltw9aro0-lwjp697d2fs
+</details>
+
+
 

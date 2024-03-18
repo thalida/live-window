@@ -20,8 +20,8 @@ Embed the image into your HTML or Markdown Document:
 | Parameter | Description | Options | Default |
 |-----------|-------------|---------|---------|
 | units     | Temperature units | `imperial` (`°F`), `metric` (`°C`), `standard` (`K`) | `metric` |
-| lang     | `af`, `al`, `ar`, `az`, `bg`, `ca`, `cz`, `da`, `de`, `el`, `en`, `eu`, `fa`, `fi`, `fr`, `gl`, `he`, `hi`, `hr`, `hu`, `id`, `it`, `ja`, `kr`, `la`, `lt`, `mk`, `no`, `nl`, `pl`, `pt`, `pt_br`, `ro`, `ru`, `sv`, `se`, `sk`, `sl`, `sp`, `es`, `sr`, `th`, `tr`, `ua`, `uk`, `vi`, `zh_cn`, `zh_tw`, `zu` | `en` |
-| location | Latitude, Longitude coordinates  | Any lat,lng | `40.7128,-74.0060` (New York City) |
+| lang     | Description language | `af`, `al`, `ar`, `az`, `bg`, `ca`, `cz`, `da`, `de`, `el`, `en`, `eu`, `fa`, `fi`, `fr`, `gl`, `he`, `hi`, `hr`, `hu`, `id`, `it`, `ja`, `kr`, `la`, `lt`, `mk`, `no`, `nl`, `pl`, `pt`, `pt_br`, `ro`, `ru`, `sv`, `se`, `sk`, `sl`, `sp`, `es`, `sr`, `th`, `tr`, `ua`, `uk`, `vi`, `zh_cn`, `zh_tw`, `zu` | `en` |
+| location | Location latitude and longitude coordinates  | Any lat,lng | `40.7128,-74.0060` (New York City) |
 
 
 ## Examples

@@ -28,9 +28,9 @@ Embed the image into your HTML or Markdown Document:
 
 | Window | API Request |
 |--------|-----------------------|
-| <img src="https://livewindow-api.onrender.com/api/?location=40.7128,-74.0060&units=imperial" /> | **New York, USA (°F)** <br /> `https://livewindow-api.onrender.com/api/?location=40.7128,-74.0060&units=imperial` |
-| <img src="https://livewindow-api.onrender.com/api/?location=10.6603,-61.5086" /> | **Port of Spain, Trinidad & Tobago (°C)** <br /> `https://live-window.tunl.sh/api/?location=10.6603,-61.5086` |
-| <img src="https://livewindow-api.onrender.com/api/?units=standard&location=48.8566,2.3522&lang=fr" /> | **Paris, France (K)** <br /> `https://live-window.tunl.sh/api/?units=standard&location=48.8566,2.3522&lang=fr` |
+| <img src="https://livewindow-api.onrender.com/api/?location=40.7128,-74.0060&units=imperial" /> | **New York, USA (°F)** <br /> [https://livewindow-api.onrender.com/api/?location=40.7128,-74.0060&units=imperial](https://livewindow-api.onrender.com/api/?location=40.7128,-74.0060&units=imperial) |
+| <img src="https://livewindow-api.onrender.com/api/?location=10.6603,-61.5086" /> | **Port of Spain, Trinidad & Tobago (°C)** <br /> [https://live-window.tunl.sh/api/?location=10.6603,-61.5086](https://live-window.tunl.sh/api/?location=10.6603,-61.5086) |
+| <img src="https://livewindow-api.onrender.com/api/?units=standard&location=48.8566,2.3522&lang=fr" /> | **Paris, France (K)** <br /> [https://live-window.tunl.sh/api/?units=standard&location=48.8566,2.3522&lang=fr](https://live-window.tunl.sh/api/?units=standard&location=48.8566,2.3522&lang=fr) |
 
 
 ## Help!

@@ -3,48 +3,27 @@ from datetime import datetime, timedelta
 from math import floor
 import os
 
-from rich import print
-
-from dotenv import load_dotenv
 import requests
 
-load_dotenv()
+from .constants import (
+    DEFAULT_LANG,
+    DEFAULT_LOCATION,
+    DEFAULT_UNITS,
+    OPEN_WEATHER_API_KEY,
+    SUNRISE_COLOR_IDX,
+    SUNSET_COLOR_IDX,
+    TIME_COLORS,
+)
 
-OPEN_WEATHER_API_KEY = os.getenv("OPEN_WEATHER_API_KEY")
-
-# New York City
-DEFAULT_LOCATION = {
-    "lat": 40.7128,
-    "lng": -74.0060,
-}
-
-HOURS_IN_DAY = 24
-MINUTES_IN_HOUR = 60
-TIME_COLORS = [
-    {"r": 4, "g": 10, "b": 30},
-    {"r": 139, "g": 152, "b": 206},
-    {"r": 86, "g": 216, "b": 255},
-    {"r": 255, "g": 216, "b": 116},
-    {"r": 255, "g": 183, "b": 116},
-    {"r": 255, "g": 153, "b": 116},
-    {"r": 255, "g": 103, "b": 116},
-    {"r": 20, "g": 40, "b": 116},
-]
-SUNRISE_COLOR_IDX = 2
-SUNSET_COLOR_IDX = 6
+from .types import UnitEnum
 
 
 def create_window_svg(
-    units: str | None = "metric",
-    lat: float | None = DEFAULT_LOCATION["lat"],
-    lon: float | None = DEFAULT_LOCATION["lng"],
-    lang: str | None = "en",
+    units: UnitEnum = DEFAULT_UNITS,
+    lat: float = DEFAULT_LOCATION["lat"],
+    lon: float = DEFAULT_LOCATION["lng"],
+    lang: str = DEFAULT_LANG,
 ):
-    units = units or "metric"
-    lat = lat or DEFAULT_LOCATION["lat"]
-    lon = lon or DEFAULT_LOCATION["lng"]
-    lang = lang or "en"
-
     weather_data = get_weather_data(units, lat, lon, lang)
 
     if units == "metric":
@@ -256,6 +235,7 @@ def getContrastColor(color):
 
 
 def getRealisticColor(sunrise_time, sunset_time, now):
+    print(now)
     if now < sunrise_time:
         color_phase = TIME_COLORS[0 : SUNRISE_COLOR_IDX + 1]
         phase_start_time = datetime(now.year, now.month, now.day, 0, 0, 0, 0)
@@ -264,9 +244,9 @@ def getRealisticColor(sunrise_time, sunset_time, now):
         color_phase = TIME_COLORS[SUNSET_COLOR_IDX:]
         color_phase.append(TIME_COLORS[0])
         phase_start_time = sunset_time
-        phase_end_time = datetime(now.year, now.month, now.day, 23, 59, 59, 999)
-        if phase_start_time.date() != now.date():
-            phase_start_time += timedelta(days=1)
+        phase_end_time = datetime(
+            sunset_time.year, sunset_time.month, sunset_time.day, 23, 59, 59, 999
+        )
     else:
         color_phase = TIME_COLORS[SUNRISE_COLOR_IDX : SUNSET_COLOR_IDX + 1]
         phase_start_time = sunrise_time
@@ -276,16 +256,33 @@ def getRealisticColor(sunrise_time, sunset_time, now):
     time_in_phase = phase_end_time - phase_start_time
     distance = time_since_start / time_in_phase
 
+    print(
+        "time_since_start:",
+        time_since_start,
+        "time_in_phase:",
+        time_in_phase,
+        "distance:",
+        distance,
+        "color_phase:",
+        color_phase,
+    )
+
     phase_segments = time_in_phase / (len(color_phase) - 1)
     start_color_idx = floor((len(color_phase) - 1) * distance)
-    end_color_idx = start_color_idx + 1
+    end_color_idx = (
+        start_color_idx + 1
+        if start_color_idx < len(color_phase) - 1
+        else len(color_phase) - 1
+    )
 
     start_color_time = phase_start_time + start_color_idx * phase_segments
     end_color_time = phase_start_time + end_color_idx * phase_segments
 
     time_in_segments = end_color_time - start_color_time
     time_since_segment_start = now - start_color_time
-    distance_in_segment = time_since_segment_start / time_in_segments
+    distance_in_segment = (
+        time_since_segment_start / time_in_segments if time_in_segments else 1
+    )
     start_color = color_phase[start_color_idx]
     end_color = color_phase[end_color_idx]
 

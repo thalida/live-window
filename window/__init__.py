@@ -269,6 +269,9 @@ def getRealisticColor(sunrise_time, sunset_time, now):
 
     phase_segments = time_in_phase / (len(color_phase) - 1)
     start_color_idx = floor((len(color_phase) - 1) * distance)
+    start_color_idx = (
+        start_color_idx if start_color_idx < len(color_phase) else len(color_phase) - 1
+    )
     end_color_idx = (
         start_color_idx + 1
         if start_color_idx < len(color_phase) - 1

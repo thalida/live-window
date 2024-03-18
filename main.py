@@ -24,10 +24,17 @@ app = FastAPI(
 @app.get("/api/")
 def generate_image(
     units: UnitEnum = DEFAULT_UNITS,
-    lat: float = DEFAULT_LOCATION["lat"],
-    lon: float = DEFAULT_LOCATION["lng"],
+    location: str = f"{DEFAULT_LOCATION['lat']},{DEFAULT_LOCATION['lng']}",
     lang: LangEnum = DEFAULT_LANG,
 ) -> HTMLResponse:
+    lat_str, lon_str = location.split(",")
+
+    lat = float(lat_str) if lat_str else None
+    lon = float(lon_str) if lon_str else None
+
+    if lat is None or lon is None:
+        lat, lon = DEFAULT_LOCATION["lat"], DEFAULT_LOCATION["lng"]
+
     svg = create_window_svg(units, lat, lon, lang)
     return HTMLResponse(
         content=svg,
